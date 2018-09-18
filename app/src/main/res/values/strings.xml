@@ -1,0 +1,17 @@
+<resources>
+    <!--<string name="app_name">PropertyWorld</string>-->
+    <string name="app_name">Bananas</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="location_text">In… %1$s, %2$s</string>
+    <string name="title_activity_property_details">PropertyDetails</string>
+
+    <string name="featured">Featured!</string>
+    <string name="price_text">%1$s€</string>
+    <string name="http_prefix">http://</string>
+    <string name="not_available">N/A</string>
+    <string name="overview">Brief Overview:</string>
+
+    <string name="state_not_found_title">No Properties found</string>
+    <string name="state_not_found_desc">Please try again later.</string>
+</resources>
