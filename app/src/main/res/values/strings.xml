@@ -1,6 +1,5 @@
 <resources>
-    <!--<string name="app_name">PropertyWorld</string>-->
-    <string name="app_name">Bananas</string>
+    <string name="app_name">PropertyWorld</string>
     <string name="action_settings">Settings</string>
 
     <string name="location_text">In… %1$s, %2$s</string>
