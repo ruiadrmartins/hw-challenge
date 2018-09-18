@@ -13,4 +13,7 @@
 
     <string name="state_not_found_title">No Properties found</string>
     <string name="state_not_found_desc">Please try again later.</string>
+
+    <string name="error">Error</string>
+    <string name="tryagain">Try again</string>
 </resources>

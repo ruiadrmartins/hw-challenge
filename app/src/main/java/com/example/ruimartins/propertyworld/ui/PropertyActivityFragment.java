@@ -4,13 +4,11 @@ import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.ruimartins.propertyworld.R;
 import com.example.ruimartins.propertyworld.adapter.PropertyAdapter;
@@ -45,6 +43,7 @@ public class PropertyActivityFragment extends Fragment implements PropertyViewIn
         ButterKnife.bind(this, root);
         presenter = new PropertyPresenter(this);
         setupView();
+        progressLayout.showLoading();
         presenter.getProperties();
 
         return root;
@@ -59,13 +58,8 @@ public class PropertyActivityFragment extends Fragment implements PropertyViewIn
     public void setupView() {
         properties.setLayoutManager(new LinearLayoutManager(getContext()));
         properties.setAdapter(adapter);
-        progressLayout.showEmpty(R.mipmap.ic_sad_face, getString(R.string.state_not_found_title),
+        progressLayout.showEmpty(R.drawable.ic_sentiment_dissatisfied_black_24dp, getString(R.string.state_not_found_title),
                 getString(R.string.state_not_found_desc));
-    }
-
-    @Override
-    public void showLoading() {
-        progressLayout.showLoading();
     }
 
     @Override
@@ -75,11 +69,20 @@ public class PropertyActivityFragment extends Fragment implements PropertyViewIn
             properties.setAdapter(adapter);
             adapter.notifyDataSetChanged();
             if(adapter.getItemCount()==0) {
-                progressLayout.showEmpty(R.mipmap.ic_sad_face, getString(R.string.state_not_found_title),
+                progressLayout.showEmpty(R.drawable.ic_sentiment_dissatisfied_black_24dp, getString(R.string.state_not_found_title),
                         getString(R.string.state_not_found_desc));
             } else {
                 progressLayout.showContent();
             }
         }
+    }
+
+    @Override
+    public void showError(String message) {
+        progressLayout.showError(R.drawable.ic_sentiment_dissatisfied_black_24dp, getString(R.string.error), message, getString(R.string.tryagain),
+                view -> {
+                    progressLayout.showLoading();
+                    presenter.getProperties();
+                });
     }
 }

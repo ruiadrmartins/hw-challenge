@@ -2,7 +2,6 @@ package com.example.ruimartins.propertyworld.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -59,7 +58,7 @@ public class PropertyDetailsFragment extends Fragment {
         Picasso.get()
                 .load(getString(R.string.http_prefix) + propertyPhotoPrefix + propertyPhotoSuffix)
                 .placeholder(R.drawable.ic_photo_black_24dp)
-                .error(R.mipmap.ic_sad_face)
+                .error(R.drawable.ic_sentiment_dissatisfied_black_24dp)
                 .fit()
                 .centerCrop(Gravity.TOP)
                 .into(propertyPhoto);

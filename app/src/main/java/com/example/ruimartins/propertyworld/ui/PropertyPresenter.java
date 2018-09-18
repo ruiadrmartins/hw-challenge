@@ -1,6 +1,5 @@
 package com.example.ruimartins.propertyworld.ui;
 
-
 import com.example.ruimartins.propertyworld.network.NetworkController;
 
 import io.reactivex.Observable;
@@ -9,7 +8,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PropertyPresenter implements PropertyPresenterInterface {
 
-    PropertyViewInterface pvi;
+    private PropertyViewInterface pvi;
 
     public PropertyPresenter(PropertyViewInterface pvi) {
         this.pvi = pvi;
@@ -21,18 +20,17 @@ public class PropertyPresenter implements PropertyPresenterInterface {
 
         // Just to not use AsyncTask
         Observable.fromCallable(() -> {
-                    pvi.showLoading();
+                    //pvi.showLoading();
                     return controller.start();
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        result -> {
+                .subscribe(result -> {
                             pvi.displayProperties(result.getProperties());
                             pvi.setLocation(result.getLocation());
                         },
                         error -> {
-
+                            pvi.showError(error.getMessage());
                         });
     }
 }

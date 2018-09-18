@@ -86,7 +86,7 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
             Picasso.get()
                     .load(path)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                    .error(R.mipmap.ic_sad_face)
+                    .error(R.drawable.ic_sentiment_dissatisfied_black_24dp)
                     .fit()
                     .centerCrop(Gravity.TOP)
                     .into(propertyHolder.propertyPhoto);
