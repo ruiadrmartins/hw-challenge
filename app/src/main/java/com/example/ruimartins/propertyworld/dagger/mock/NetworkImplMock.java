@@ -37,10 +37,12 @@ public class NetworkImplMock implements NetworkInterface {
         Property property2 = new Property();
         property2.setName("Other Hostel");
         property2.setIsFeatured(false);
-        overallRating.setOverall(62);
-        property2.setOverallRating(overallRating);
-        lowestPricePerNight.setValue("167");
-        property2.setLowestPricePerNight(lowestPricePerNight);
+        OverallRating overallRating2 = new OverallRating();
+        overallRating2.setOverall(62);
+        property2.setOverallRating(overallRating2);
+        LowestPricePerNight lowestPricePerNight2 = new LowestPricePerNight();
+        lowestPricePerNight2.setValue("167");
+        property2.setLowestPricePerNight(lowestPricePerNight2);
         property2.setImages(new ArrayList<>());
 
         List<Property> propertyList = new ArrayList<>();
