@@ -9,7 +9,6 @@ import com.example.ruimartins.propertyworld.R;
 
 public class PropertyActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

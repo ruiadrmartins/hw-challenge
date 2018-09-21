@@ -41,7 +41,7 @@ public class PropertyActivityFragment extends Fragment implements PropertyViewIn
         View root =  inflater.inflate(R.layout.fragment_property, container, false);
 
         ButterKnife.bind(this, root);
-        presenter = new PropertyPresenter(this);
+        presenter = new PropertyPresenter(this, getActivity().getApplication());
         setupView();
         progressLayout.showLoading();
         presenter.getProperties();
